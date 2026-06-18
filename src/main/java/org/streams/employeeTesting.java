@@ -2,10 +2,8 @@ package org.streams;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class employeeTesting {
 
@@ -14,8 +12,10 @@ public class employeeTesting {
         List<Employee> employeeList = Arrays.asList(
                 new Employee("John Doe", "IT", 76000, "E001", LocalDateTime.of(2024,12,12,8,45,45)),
                 new Employee("Jane Smith", "HR", 65000, "E002", LocalDateTime.of(2023,10,12,8,45,45)),
-                new Employee("Alice Johnson", "Finance", 80000, "E003", LocalDateTime.of(2024,12,10,8,45,45)),
-                new Employee("Bob Brown", "IT", 79000, "E004",LocalDateTime.of(2024,10,12,8,45,45))
+                new Employee("Jane willy", "HR", 65000, "E003", LocalDateTime.of(2023,10,8,8,45,45)),
+                new Employee("Smith walker", "HR", 65000, "E004", LocalDateTime.of(2023,10,7,8,45,45)),
+                new Employee("Alice Johnson", "Finance", 80000, "E005", LocalDateTime.of(2021,12,10,8,45,45)),
+                new Employee("Bob Brown", "IT", 79000, "E006",LocalDateTime.of(2020,10,12,8,45,45))
         );
 
 
@@ -36,11 +36,30 @@ public class employeeTesting {
 
         reversedList.forEach(System.out::println);
 
+        //salary for each dept
+        Map<String,Double> salaryPerDept =  employeeList.stream().collect(Collectors.groupingBy(Employee::getDept,Collectors.summingDouble(Employee::getSalary)));
+
+        salaryPerDept.forEach((emplkey, emplvale)->{
+            System.out.println("employee dept:"+emplkey +"spending salary"+emplvale);
+        });
 
 
         //how many people are there in each department
+        Map<String,Long>  personPerDept =   employeeList.stream().collect(Collectors.groupingBy(Employee::getDept,Collectors.counting()));
+
+        personPerDept.forEach((key,value)-> System.out.println("Dept ::"+key+" "+value));
+
         //average salary across all
+        Double averageSalary = employeeList.stream().mapToDouble(Employee::getSalary).average().orElse(0.0);
+
+        System.out.println(averageSalary);
         //average salary per department
+
+        Map<String,Double> averageSalaryPerDept = employeeList.stream().collect(
+                Collectors.groupingBy(Employee::getDept,Collectors.averagingDouble(Employee::getSalary))
+        );
+
+        averageSalaryPerDept.forEach((key,value)-> System.out.println("Dept ::"+ key +" "+value));
     }
 
 
