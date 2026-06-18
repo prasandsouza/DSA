@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -16,6 +17,6 @@ public class Employee {
     private String dept;
     private double salary;
     private String empId;
-    private Date dateOfJoining;
+    private LocalDateTime dateOfJoining;
 
 }
