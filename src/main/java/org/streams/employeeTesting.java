@@ -60,7 +60,12 @@ public class employeeTesting {
         );
 
         averageSalaryPerDept.forEach((key,value)-> System.out.println("Dept ::"+ key +" "+value));
-    }
+
+        Double avgSal = employeeList.streams.mapToDouble(Employee::getSalary).average().orElse(0.0);
+
+        System.out.println(avgSal);
+
+    } 
 
 
 }
