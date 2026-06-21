@@ -65,6 +65,10 @@ public class employeeTesting {
 
         System.out.println(avgSal);
 
+        
+        list<String> items = Arrays.asList("pen","pencil","pen","rubber","pen","pencil","keyBoard");
+        Map<String, long> filteredItem = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
     } 
 
 
