@@ -1,6 +1,6 @@
 package org.DSABasics.ConditionalThinking.levelThree;
 
-public class MahAndNumberLogic {
+public class MathAndNumberLogic {
 
     private int a = 546;
 
@@ -18,5 +18,12 @@ public class MahAndNumberLogic {
                System.out.println("All element are distinct");
            }
        }
+    }
+
+    public void convertIntegerIntoArray(){
+
+        int[] arrayValue  = Integer.toString(a).chars().map(c->c-'0').toArray();
+        int[] digitArray = new int[]{a};
+
     }
 }
