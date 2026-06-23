@@ -25,5 +25,11 @@ public class Main {
         MathAndNumberLogic mathAndNumberLogic = new MathAndNumberLogic();
         System.out.println(mathAndNumberLogic.findingWeek(4));
         System.out.println(mathAndNumberLogic.findingWeek(0));
+        System.out.println(mathAndNumberLogic.checkDigit(4));
+        System.out.println(mathAndNumberLogic.checkNumberIsMultipleOfSevenOrStartsOrEndsWithSeven(777));
+
+        System.out.println(mathAndNumberLogic.checkForCordinates(-8,7));
+
+        System.out.println(mathAndNumberLogic.checkForThirdAngle(89,23));
     }
 }
