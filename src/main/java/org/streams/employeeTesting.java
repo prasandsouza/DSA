@@ -3,6 +3,7 @@ package org.streams;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class employeeTesting {
@@ -61,13 +62,16 @@ public class employeeTesting {
 
         averageSalaryPerDept.forEach((key,value)-> System.out.println("Dept ::"+ key +" "+value));
 
-        Double avgSal = employeeList.streams.mapToDouble(Employee::getSalary).average().orElse(0.0);
+        Double avgSal = employeeList.stream().mapToDouble(Employee::getSalary).average().orElse(0.0);
 
         System.out.println(avgSal);
 
-        
-        list<String> items = Arrays.asList("pen","pencil","pen","rubber","pen","pencil","keyBoard");
-        Map<String, long> filteredItem = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        List<String> items = Arrays.asList("pen","pencil","pen","rubber","pen","pencil","keyBoard");
+
+        Map.Entry<String,Long> listedItems = items.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).orElse(null);
+
+        System.out.println("listed items are "+ listedItems);
 
     } 
 
