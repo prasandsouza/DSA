@@ -60,6 +60,9 @@ public class employeeTesting {
         );
 
         averageSalaryPerDept.forEach((key,value)-> System.out.println("Dept ::"+ key +" "+value));
+
+
+
     }
 
 
