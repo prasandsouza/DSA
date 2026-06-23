@@ -26,4 +26,29 @@ public class MathAndNumberLogic {
         int[] digitArray = new int[]{a};
 
     }
+
+    public void checkDigit(int number){
+        if(number>=100){
+            System.out.println(" number is three digit");
+        } else if(number>=10){
+            System.out.println("Number is double digit");
+        } else{
+            System.out.println("number is single digit");
+        }
+    }
+
+    public String findingWeek(int days){
+        return switch (days) {
+            case 1 -> "Sunday";
+            case 2 -> "Monday";
+            case 3 -> "Tuesday";
+            case 4 -> "Wednesday";
+            case 5 -> "Thursday";
+            case 6 -> "Friday";
+            case 7 -> "Saturday";
+            default -> "Invalid day";
+        };
+    }
+
+
 }
