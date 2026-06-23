@@ -61,9 +61,15 @@ public class employeeTesting {
 
         averageSalaryPerDept.forEach((key,value)-> System.out.println("Dept ::"+ key +" "+value));
 
+        Double avgSal = employeeList.streams.mapToDouble(Employee::getSalary).average().orElse(0.0);
 
+        System.out.println(avgSal);
 
-    }
+        
+        list<String> items = Arrays.asList("pen","pencil","pen","rubber","pen","pencil","keyBoard");
+        Map<String, long> filteredItem = items.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+    } 
 
 
 }
