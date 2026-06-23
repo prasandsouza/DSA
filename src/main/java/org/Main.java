@@ -1,6 +1,7 @@
 package org;
 
 import org.DSABasics.ConditionalThinking.levelOne.SimpleIf;
+import org.DSABasics.ConditionalThinking.levelThree.MathAndNumberLogic;
 import org.DSABasics.ConditionalThinking.levelTwo.NestedIfAndMultipleCondition;
 
 
@@ -19,5 +20,10 @@ public class Main {
         nestedIfAndMultipleCondition.findingMultiple(10,30);
         nestedIfAndMultipleCondition.dayWishes(12);
         nestedIfAndMultipleCondition.dayWishes(-65);
+
+
+        MathAndNumberLogic mathAndNumberLogic = new MathAndNumberLogic();
+        System.out.println(mathAndNumberLogic.findingWeek(4));
+        System.out.println(mathAndNumberLogic.findingWeek(0));
     }
 }
