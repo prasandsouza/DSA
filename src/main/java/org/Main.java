@@ -1,5 +1,7 @@
 package org;
 
+import org.DSABasics.ConditionalThinking.levelFive.CreativeAndTricky;
+import org.DSABasics.ConditionalThinking.levelFour.LogicalOperatorAndCompoundStatement;
 import org.DSABasics.ConditionalThinking.levelOne.SimpleIf;
 import org.DSABasics.ConditionalThinking.levelThree.MathAndNumberLogic;
 import org.DSABasics.ConditionalThinking.levelTwo.NestedIfAndMultipleCondition;
@@ -31,5 +33,15 @@ public class Main {
         System.out.println(mathAndNumberLogic.checkForCordinates(-8,7));
 
         System.out.println(mathAndNumberLogic.checkForThirdAngle(89,23));
+
+
+        LogicalOperatorAndCompoundStatement logicalOperatorAndCompoundStatement = new LogicalOperatorAndCompoundStatement();
+
+
+        System.out.println(logicalOperatorAndCompoundStatement.passwordValidation("123456dfgh5") ? "Valid Password" : "invalid password");
+        CreativeAndTricky creativeAndTricky = new CreativeAndTricky();
+        System.out.println(creativeAndTricky.dateAndMonthCheck("30-02-2024") ? "Valid Date" : "invalid date");
+
+
     }
 }
