@@ -12,9 +12,9 @@ public class employeeTesting {
 
         List<Employee> employeeList = Arrays.asList(
                 new Employee("John Doe", "IT", 76000, "E001", LocalDateTime.of(2024,12,12,8,45,45)),
-                new Employee("Jane Smith", "HR", 65000, "E002", LocalDateTime.of(2023,10,12,8,45,45)),
-                new Employee("Jane willy", "HR", 65000, "E003", LocalDateTime.of(2023,10,8,8,45,45)),
-                new Employee("Smith walker", "HR", 65000, "E004", LocalDateTime.of(2023,10,7,8,45,45)),
+                new Employee("Jane Smith", "HR", 63000, "E002", LocalDateTime.of(2023,10,12,8,45,45)),
+                new Employee("Jane willy", "HR", 60000, "E003", LocalDateTime.of(2023,10,8,8,45,45)),
+                new Employee("Smith walker", "HR", 61000, "E004", LocalDateTime.of(2023,10,7,8,45,45)),
                 new Employee("Alice Johnson", "Finance", 80000, "E005", LocalDateTime.of(2021,12,10,8,45,45)),
                 new Employee("Bob Brown", "IT", 79000, "E006",LocalDateTime.of(2020,10,12,8,45,45))
         );
@@ -67,14 +67,18 @@ public class employeeTesting {
         System.out.println(avgSal);
 
 
+        // count the occurrence
         List<String> items = Arrays.asList("pen","pencil","pen","rubber","pen","pencil","keyBoard");
 
         Map.Entry<String,Long> listedItems = items.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).orElse(null);
 
         System.out.println("listed items are "+ listedItems);
 
+        // partition by salary
 
+        Map<Boolean,List<Employee>> partition = employeeList.stream().collect(Collectors.partitioningBy(employee-> employee.getSalary()>65000));
 
+        System.out.println(partition);
     } 
 
 
