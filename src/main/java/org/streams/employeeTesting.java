@@ -5,6 +5,7 @@ import java.time.ZoneId;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class employeeTesting {
 
@@ -79,6 +80,14 @@ public class employeeTesting {
         Map<Boolean,List<Employee>> partition = employeeList.stream().collect(Collectors.partitioningBy(employee-> employee.getSalary()>65000));
 
         System.out.println(partition);
+
+
+        String input = "hello this is testing of stream";
+
+
+        String output = Stream.of(input.split(" ")).map(word -> word.substring(0,1).toUpperCase()+word.substring(1)).collect(Collectors.joining(" "));
+
+        System.out.println(output);
     } 
 
 
