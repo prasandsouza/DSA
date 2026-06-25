@@ -16,10 +16,6 @@ public class CreativeAndTricky {
             return true;
         } else if(day>1 && day <= 30 && evenMonth.contains(month)) {
             return true;
-        } else if(day>1 && day <= 28 && month==feb){
-            return true;
-        } else {
-            return false;
-        }
+        } else return day > 1 && day <= 28 && month == feb;
     }
 }

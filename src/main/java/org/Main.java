@@ -40,7 +40,9 @@ public class Main {
 
         System.out.println(logicalOperatorAndCompoundStatement.passwordValidation("123456dfgh5") ? "Valid Password" : "invalid password");
         CreativeAndTricky creativeAndTricky = new CreativeAndTricky();
-        System.out.println(creativeAndTricky.dateAndMonthCheck("30-02-2024") ? "Valid Date" : "invalid date");
+        System.out.println(creativeAndTricky.dateAndMonthCheck("28-02-2024") ? "Valid Date" : "invalid date");
+
+
 
 
     }
