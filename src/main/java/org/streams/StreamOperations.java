@@ -61,5 +61,39 @@ public class StreamOperations {
         List<Integer> positiveNumber = numbersList.stream().filter(num->num>=0).toList();
         System.out.println("Positive Numbers: " + positiveNumber);
 
+        // 11. Count how many products have a price greater than 100.
+        Map<String , Integer> productPrices = Map.of("Product A", 150, "Product B", 80, "Product C", 200,"Product D",30);
+        long count = productPrices.entrySet().stream().filter(entry->entry.getValue()>100).count();
+        System.out.println("Count of products with price greater than 100: " + count);
+
+
+
+        // 12. Find the first employee who works in the "IT" department.
+
+        List<Employee> employees = Arrays.asList(
+                new Employee("John Doe", "IT", 76000, "E001"),
+                new Employee("Jane Smith", "HR", 63000, "E002"),
+                new Employee("Alice Johnson", "Finance", 80000, "E003"),
+                new Employee("Bob Brown", "IT", 79000, "E004")
+        );
+        String empName = String.valueOf(employees.stream().filter(emp-> emp.getDept().equals("IT")).findFirst().orElse(null));
+        System.out.println("First employee in IT department: " + empName);
+
+
+        // 13. Verify if any transaction in a list exceeds a value of $10,000.
+        List<Double> transactions = Arrays.asList(5000.0, 12000.0, 8000.0, 15000.0, 3000.0);
+        boolean exceedsLimit = transactions.stream().anyMatch(trans -> trans >10000);
+        System.out.println("Any transaction exceeds $10,000: " + exceedsLimit);
+
+        // 14. Verify if every single user account in a list is currently active.
+
+
+        // 15. Confirm that no user in the list has an empty username string
+        // 16. Collect all unique city names from an array containing duplicates.
+        // 17. Sort a list of scores and pick only the top 3 highest scores
+        // 18. Get items for page 3 assuming page size is 10 (skip 20 elements, take next 10)
+        // 19. Sort a list of raw product categories alphabetically
+        // 20. Sort a list of employees based on their salary ascending
+
     }
 }

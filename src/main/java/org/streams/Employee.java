@@ -19,6 +19,13 @@ public class Employee implements Comparable<Employee> {
     private String empId;
     private LocalDateTime dateOfJoining;
 
+    public Employee(String johnDoe, String it, int i, String e001) {
+        this.name = johnDoe;
+        this.dept = it;
+        this.salary = i;
+        this.empId = e001;
+    }
+
 
     @Override
     public int compareTo(Employee o) {
