@@ -11,6 +11,8 @@ public class StreamOperations {
 
         List<String> names = Arrays.asList("Johns", "Jane", "Jack", "Jill","Jacob","James");
 
+
+
         // 1. Given a list of names, transform every name to uppercase.
         List<String> upperCaseNames = names.stream().map(String::toUpperCase).toList();
         System.out.println("Uppercase Names: " + upperCaseNames);
@@ -52,11 +54,13 @@ public class StreamOperations {
                 new User("Bob Johnson", "bob.johnson@example.com",50,"Texas",false),
                 new User("Alice Williams", "alice.williams@sample.com",34,"",true)
         );
-
         List<String> emails = users.stream().map(emp->emp.getEmail()).toList();
         System.out.println("Emails: " + emails);
 
         //9.Filter a list of tasks to include only those where `isCompleted()` is true
+
+
+
         //10.Filter an integer list to retain only positive numbers (>= 0)
         List<Integer> numbersList = List.of(-5, -2, 0, 3, 7, -1, 9);
         List<Integer> positiveNumber = numbersList.stream().filter(num->num>=0).toList();
@@ -70,7 +74,6 @@ public class StreamOperations {
 
 
         // 12. Find the first employee who works in the "IT" department.
-
         List<Employee> employees = Arrays.asList(
                 new Employee("John Doe", "IT", 76000, "E001"),
                 new Employee("Jane Smith", "HR", 63000, "E002"),
@@ -100,16 +103,23 @@ public class StreamOperations {
         boolean noEmptyUsername = usersList.stream().noneMatch(user -> user.getName().isEmpty());
         System.out.println("No user has an empty username: " + noEmptyUsername);
 
+
+
         // 16. Collect all unique city names from an array containing duplicates.
         List<String> citys = List.of("New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "New York", "Los Angeles");
         Set<String> uniqueCitys = citys.stream().collect(Collectors.toSet());
         System.out.println("Unique City Names: " + uniqueCitys);
 
 
+
+
         // 17. Sort a list of scores and pick only the top 3 highest scores
         List<Integer> scores = List.of(85, 92, 78, 95, 88, 76, 90);
         List<Integer> topThreeScores = scores.stream().sorted().limit(3).toList();
         System.out.println("Top 3 Highest Scores: " + topThreeScores);
+
+
+
 
         // 18. Get items for page 3 assuming page size is 10 (skip 20 elements, take next 10)
         List<String> items = List.of("Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10",
@@ -120,6 +130,8 @@ public class StreamOperations {
         System.out.println("Last 30 Items (Skipping First 20): " + lastThirtyItems);
 
 
+
+
         // 19. Sort a list of raw product categories alphabetically
         List<String> rawProducts = List.of("Electronics", "Clothing", "Books", "Home & Kitchen", "Toys", "Sports", "Beauty", "Automotive");
         List<String> sortedProduct = rawProducts.stream().sorted().toList();
@@ -128,11 +140,35 @@ public class StreamOperations {
         System.out.println("Reverse Sorted Product Categories: " + reverseSortedProduct);
 
 
+
+
         // 20. Sort a list of employees based on their salary ascending
-        List<Employee> sortedBySalary = employees.stream().sorted(Comparator.comparing(Employee::getSalary)).toList();
-        List<Employee> reverseSortedBySalary = employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).toList();
+        List<Employee> sortedBySalary = employees.stream().sorted(Comparator.comparingDouble(Employee::getSalary)).toList();
+        List<Employee> reverseSortedBySalary = employees.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).toList();
         System.out.println("Employees Sorted by Salary: " + sortedBySalary);
         System.out.println("Employees Sorted by Salary (Descending): " + reverseSortedBySalary);
 
+
+
+        // 21: Collect to a unique Set Gather all strings into a unique `Set` container instead of a List.
+        List<String> itemsWithDuplicates = Arrays.asList("apple", "banana", "apple", "orange", "banana", "kiwi");
+        Set<String> uniqueItems = itemsWithDuplicates.stream().collect(Collectors.toSet());
+        System.out.println("Unique Items: " + uniqueItems);
+
+
+
+        // 22: Collect to specific Collection type Transform a stream into a specific `LinkedList` structure.
+        LinkedList<String> linkedItems = items.stream().collect(Collectors.toCollection(LinkedList::new));
+        System.out.println("LinkedList Items: " + linkedItems);
+
+
+        // 23: Create primitive IntStream Convert a list of Integer wrappers into a native primitive `IntStream` to avoid autoboxing.
+        // 24: Primitive range generation Generate an array containing numbers from 1 to 50 inclusively.
+        // 25: Calculate sum of primitive elements Sum up all integer values inside a primitive `IntStream`.
+        // 26: Find maximum primitive value find the maximum integer inside a native array.
+        // 27: Transform primitive stream to object stream Box an `IntStream` back into a standard object-oriented `Stream`.
+        // 28: Map values to strings Convert an `IntStream` directly into a stream of formatted strings.
+        // 29: Filter blank text Remove empty or whitespace-only lines from a text sequence.
+        // 30: Extract first character
     }
 }
