@@ -2,6 +2,7 @@ package org.streams;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamOperations {
@@ -46,10 +47,10 @@ public class StreamOperations {
 
         //8.Given a list of User objects, extract a list of their string email addresses.
         List<User> users = Arrays.asList(
-                new User("John Doe", "john.doe@example.com",32,"san joe"),
-                new User("Jane Smith", "jane.smith@example.com",45,"Alaska"),
-                new User("Bob Johnson", "bob.johnson@example.com",50,"Texas"),
-                new User("Alice Williams", "alice.williams@sample.com",34,"")
+                new User("John Doe", "john.doe@example.com",32,"san joe",true),
+                new User("Jane Smith", "jane.smith@example.com",45,"Alaska",true),
+                new User("Bob Johnson", "bob.johnson@example.com",50,"Texas",false),
+                new User("Alice Williams", "alice.williams@sample.com",34,"",true)
         );
 
         List<String> emails = users.stream().map(emp->emp.getEmail()).toList();
@@ -86,14 +87,52 @@ public class StreamOperations {
         System.out.println("Any transaction exceeds $10,000: " + exceedsLimit);
 
         // 14. Verify if every single user account in a list is currently active.
-
+        List<User> usersList = Arrays.asList(
+                new User("John Doe", "john.doe@example.com",32,"san joe",true),
+                new User("Jane Smith", "jane.smith@example.com",45,"Alaska",true),
+                new User("Bob Johnson", "bob.johnson@example.com",50,"Texas",false),
+                new User("", "alice.williams@sample.com",34,"",true)
+        );
+        boolean allActive = usersList.stream().allMatch(User::isActiveStatus);
+        System.out.println("All users are active: " + allActive);
 
         // 15. Confirm that no user in the list has an empty username string
+        boolean noEmptyUsername = usersList.stream().noneMatch(user -> user.getName().isEmpty());
+        System.out.println("No user has an empty username: " + noEmptyUsername);
+
         // 16. Collect all unique city names from an array containing duplicates.
+        List<String> citys = List.of("New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "New York", "Los Angeles");
+        Set<String> uniqueCitys = citys.stream().collect(Collectors.toSet());
+        System.out.println("Unique City Names: " + uniqueCitys);
+
+
         // 17. Sort a list of scores and pick only the top 3 highest scores
+        List<Integer> scores = List.of(85, 92, 78, 95, 88, 76, 90);
+        List<Integer> topThreeScores = scores.stream().sorted().limit(3).toList();
+        System.out.println("Top 3 Highest Scores: " + topThreeScores);
+
         // 18. Get items for page 3 assuming page size is 10 (skip 20 elements, take next 10)
+        List<String> items = List.of("Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10",
+                "Item 11", "Item 12", "Item 13", "Item 14", "Item 15", "Item 16", "Item 17", "Item 18", "Item 19", "Item 20",
+                "Item 21", "Item 22", "Item 23", "Item 24", "Item 25"
+        );
+        List<String> lastThirtyItems = items.stream().limit(30).skip(20).toList();
+        System.out.println("Last 30 Items (Skipping First 20): " + lastThirtyItems);
+
+
         // 19. Sort a list of raw product categories alphabetically
+        List<String> rawProducts = List.of("Electronics", "Clothing", "Books", "Home & Kitchen", "Toys", "Sports", "Beauty", "Automotive");
+        List<String> sortedProduct = rawProducts.stream().sorted().toList();
+        List<String> reverseSortedProduct = rawProducts.stream().sorted(Comparator.reverseOrder()).toList();
+        System.out.println("Sorted Product Categories: " + sortedProduct);
+        System.out.println("Reverse Sorted Product Categories: " + reverseSortedProduct);
+
+
         // 20. Sort a list of employees based on their salary ascending
+        List<Employee> sortedBySalary = employees.stream().sorted(Comparator.comparing(Employee::getSalary)).toList();
+        List<Employee> reverseSortedBySalary = employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).toList();
+        System.out.println("Employees Sorted by Salary: " + sortedBySalary);
+        System.out.println("Employees Sorted by Salary (Descending): " + reverseSortedBySalary);
 
     }
 }
