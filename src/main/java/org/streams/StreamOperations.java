@@ -163,7 +163,7 @@ public class StreamOperations {
         System.out.println("LinkedList Items: " + linkedItems);
 
 
-        /*// 23: Create primitive IntStream Convert a list of Integer wrappers into a native primitive `IntStream` to avoid autoboxing.
+        // 23: Create primitive IntStream Convert a list of Integer wrappers into a native primitive `IntStream` to avoid autoboxing.
         List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
         int sum = integerList.stream().mapToInt(ints -> Integer.sum(ints, 0)).sum();
         int sums = integerList.stream().mapToInt(Integer::intValue).sum();
@@ -177,19 +177,32 @@ public class StreamOperations {
 
         // Generates a random number for OTP
         int randomGeneratedNumber = new Random().nextInt(999999) + 100000;
-        System.out.println("Randomly Generated OTP: " + randomGeneratedNumber);*/
+        System.out.println("Randomly Generated OTP: " + randomGeneratedNumber);
 
-        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
-        int sum = integerList.stream().mapToInt(Integer::intValue).sum();
 
-        List<Integer> numberrangeList = IntStream.rangeClosed(1,50).boxed().toList();
-
+        // OTP generation
         int otp = new Random().nextInt(100000,999999);
         System.out.println(" Otp :: "+otp);
 
         // 25: Calculate sum of primitive elements Sum up all integer values inside a primitive `IntStream`.
+        int[] primitiveSum = IntStream.of(1,2,4,5).toArray();
+
+        int summaryStatistics = IntStream.of(1,2,3,4,5,6,7,8,9).sum();
+
+
         // 26: Find maximum primitive value find the maximum integer inside a native array.
+        List<Integer> maxValueList = Arrays.asList(10, 20, 5, 30, 152);
+        OptionalInt maxValue = maxValueList.stream().mapToInt(Integer::intValue).max();
+        System.out.println("Maximum Value: " + maxValue);
+
+
         // 27: Transform primitive stream to object stream Box an `IntStream` back into a standard object-oriented `Stream`.
+        Stream<Integer> objectStream = IntStream.of(1,2,3,4,5).boxed();
+
+        IntStream.range(1, 10)
+                .map(n -> n * 2)
+                .filter(n -> n > 10)
+                .forEach(System.out::println);
         // 28: Map values to strings Convert an `IntStream` directly into a stream of formatted strings.
         // 29: Filter blank text Remove empty or whitespace-only lines from a text sequence.
         // 30: Extract first character
