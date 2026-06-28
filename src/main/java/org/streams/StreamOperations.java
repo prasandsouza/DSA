@@ -3,6 +3,7 @@ package org.streams;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamOperations {
@@ -162,8 +163,30 @@ public class StreamOperations {
         System.out.println("LinkedList Items: " + linkedItems);
 
 
-        // 23: Create primitive IntStream Convert a list of Integer wrappers into a native primitive `IntStream` to avoid autoboxing.
+        /*// 23: Create primitive IntStream Convert a list of Integer wrappers into a native primitive `IntStream` to avoid autoboxing.
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
+        int sum = integerList.stream().mapToInt(ints -> Integer.sum(ints, 0)).sum();
+        int sums = integerList.stream().mapToInt(Integer::intValue).sum();
+        System.out.println("Sum of Integer List (using mapToInt): " + sum);
+        System.out.println("Sum of Integer List (Using intValue): " + sums);
+
+
         // 24: Primitive range generation Generate an array containing numbers from 1 to 50 inclusively.
+        List<Integer> rangeList = IntStream.rangeClosed(1, 50).boxed().toList();
+        System.out.println("Range from 1 to 50: " + rangeList);
+
+        // Generates a random number for OTP
+        int randomGeneratedNumber = new Random().nextInt(999999) + 100000;
+        System.out.println("Randomly Generated OTP: " + randomGeneratedNumber);*/
+
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
+        int sum = integerList.stream().mapToInt(Integer::intValue).sum();
+
+        List<Integer> numberrangeList = IntStream.rangeClosed(1,50).boxed().toList();
+
+        int otp = new Random().nextInt(100000,999999);
+        System.out.println(" Otp :: "+otp);
+
         // 25: Calculate sum of primitive elements Sum up all integer values inside a primitive `IntStream`.
         // 26: Find maximum primitive value find the maximum integer inside a native array.
         // 27: Transform primitive stream to object stream Box an `IntStream` back into a standard object-oriented `Stream`.
