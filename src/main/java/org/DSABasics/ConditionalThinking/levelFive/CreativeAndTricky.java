@@ -20,12 +20,18 @@ public class CreativeAndTricky {
     }
 
     public double angleBetweenHoursAndMinutes(int hours, int minutes){
-
-
         if (hours == 12) {       hours = 0;    }
         double hourAngle = (hours * 30) + (minutes * 0.5); //922.5
         double minuteAngle = minutes * 6; //270
         double angle = Math.abs(hourAngle - minuteAngle);
         return Math.min(angle, 360 - angle);
+    }
+
+    public  double angleBetweenHoursAndMinutesSecond(int hours, int min){
+        if(hours==12){
+            hours = 0;
+        }
+        int hourAngle = hours * 5;
+        return Math.abs(hourAngle - min) * 6;
     }
 }

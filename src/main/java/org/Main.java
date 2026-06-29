@@ -51,5 +51,11 @@ public class Main {
         System.out.println(creativeAndTricky.angleBetweenHoursAndMinutes(9, 45));   // 22.5
 
 
+        System.out.println(creativeAndTricky.angleBetweenHoursAndMinutesSecond(3, 30));   // 75.02
+        System.out.println(creativeAndTricky.angleBetweenHoursAndMinutesSecond(12, 0));   // 0.03
+        System.out.println(creativeAndTricky.angleBetweenHoursAndMinutesSecond(6, 0));    // 180.04
+        System.out.println(creativeAndTricky.angleBetweenHoursAndMinutesSecond(9, 45));
+
+
     }
 }
