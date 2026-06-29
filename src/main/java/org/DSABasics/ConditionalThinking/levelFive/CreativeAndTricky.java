@@ -18,4 +18,14 @@ public class CreativeAndTricky {
             return true;
         } else return day > 1 && day <= 28 && month == feb;
     }
+
+    public double angleBetweenHoursAndMinutes(int hours, int minutes){
+
+
+        if (hours == 12) {       hours = 0;    }
+        double hourAngle = (hours * 30) + (minutes * 0.5); //922.5
+        double minuteAngle = minutes * 6; //270
+        double angle = Math.abs(hourAngle - minuteAngle);
+        return Math.min(angle, 360 - angle);
+    }
 }
