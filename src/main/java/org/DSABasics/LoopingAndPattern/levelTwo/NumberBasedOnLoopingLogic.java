@@ -43,6 +43,63 @@ public class NumberBasedOnLoopingLogic {
         //Armstrong number
 
 
+        // perfect number
+        int perfectNumber = 28;
+        int sumOfDivisor = 0;
+        for(int i=1;i<perfectNumber;i++){
+            if(perfectNumber%i==0){
+                sumOfDivisor = sumOfDivisor+i;
+            }
+        }
+        if(perfectNumber==sumOfDivisor){
+            System.out.println("The number is a perfect number.");
+        } else {
+            System.out.println("The number is not a perfect number.");
+        }
 
+
+        // checking prime number from 1 to 100;
+
+        for (int i = 1; i <= 100; i++) {
+            boolean isPrime = true;
+            for(int j=2;j<i;j++){
+                if(i%j==0){
+                    isPrime = false;
+                    break;
+                }
+            }
+            if(isPrime){
+                System.out.println(i+" is a prime number.");
+            }
+        }
+
+
+        // check if given number is prime or not
+        int primeChecker = 23;
+        boolean isPrime = true;
+        for(int i=2;i<primeChecker;i++){
+            if(primeChecker%i==0){
+                isPrime = false;
+                break;
+            }
+        }
+        if(isPrime){
+            System.out.println(primeChecker+" is a prime number.");
+        } else {
+            System.out.println(primeChecker+" is not a prime number.");
+        }
+
+
+
+        // Fibonacci number
+        int fib = 3;
+        int first = 0;
+        int second = 1;
+        int prev = first + second;
+        for(int i=3;i<fib;i++){
+            prev = prev+ second;
+            second = prev - second;
+        }
+        System.out.println("Fibonacci number at position "+fib+" is: "+prev);
     }
 }
