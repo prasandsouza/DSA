@@ -35,5 +35,44 @@ public class PatternPrinting {
             }
             System.out.println();
         }
+
+        // print the even stars in pyramid
+        for(int i=0;i<=10;i++){
+            if(i%2==0){
+                for(int j=0;j<i;j++){
+                    System.out.print("*");
+                }
+            }
+
+            System.out.println();
+        }
+
+
+
+        // print a pyramid
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n-i-1;j++){
+                System.out.print(" ");
+            }
+            for(int k=0;k<i*2+1;k++){
+                System.out.print("*");
+            }
+            System.out.println();}
+
+
+        for(int i=0;i<n;i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                System.out.print("b");
+            }
+            for (int j= 0;j<=i;j++){
+                if(j%2==0){
+                    System.out.print("*");
+                }else{
+                    System.out.print("b");
+                }
+
+            }
+            System.out.println();
+        }
     }
 }
