@@ -40,9 +40,6 @@ public class NumberBasedOnLoopingLogic {
 
 
 
-        //Armstrong number
-
-
         // perfect number
         int perfectNumber = 28;
         int sumOfDivisor = 0;
