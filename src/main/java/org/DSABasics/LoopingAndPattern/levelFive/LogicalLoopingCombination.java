@@ -27,19 +27,21 @@ public class LogicalLoopingCombination {
         }
 
         // print all the palindrome number;
-        for(int i=100;i<=500;i++){
-            int originalNumber = i;
-            int lastDigit;
-            int reversedNumber = 0;
-            while(i!=0){
-                lastDigit = i % 10;
-                reversedNumber = lastDigit + reversedNumber * 10;
-                i/=10;
-            }
-            if(originalNumber == reversedNumber){
-                System.out.println("Palindrome number: "+reversedNumber);
-            }
-        }
+       for(int i=100;i<=500;i++){
+    int originalNumber = i;
+    int lastDigit;
+    int reversedNumber = 0;
+    int temp = originalNumber;
+    while(temp != 0){
+        lastDigit = temp % 10;
+        reversedNumber = reversedNumber * 10 + lastDigit;
+        temp /= 10;
+    }
+    if(originalNumber == reversedNumber){
+        System.out.println("Palindrome number: " + originalNumber);
+    }
+}
 
+        //print all the number whose digit add up to a multiple of 3
     }
 }
