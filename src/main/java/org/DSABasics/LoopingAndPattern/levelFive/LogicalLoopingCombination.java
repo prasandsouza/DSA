@@ -27,8 +27,19 @@ public class LogicalLoopingCombination {
         }
 
         // print all the palindrome number;
-
-
+        for(int i=100;i<=500;i++){
+            int originalNumber = i;
+            int lastDigit;
+            int reversedNumber = 0;
+            while(i!=0){
+                lastDigit = i % 10;
+                reversedNumber = lastDigit + reversedNumber * 10;
+                i/=10;
+            }
+            if(originalNumber == reversedNumber){
+                System.out.println("Palindrome number: "+reversedNumber);
+            }
+        }
 
     }
 }
