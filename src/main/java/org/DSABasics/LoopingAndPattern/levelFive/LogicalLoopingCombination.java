@@ -1,5 +1,7 @@
 package org.DSABasics.LoopingAndPattern.levelFive;
 
+import java.util.Scanner;
+
 public class LogicalLoopingCombination {
 
     public static void main(String[] args) {
@@ -111,7 +113,45 @@ public class LogicalLoopingCombination {
                     System.out.println("Number whose binary representation has an even number of 1s: "+i);
                 }
             } */
+
         }
+
+        // print pattern where each row i print i*i
+        for(int i=0;i<10;i++){
+            for(int j=0;j<i;j++){
+                System.out.println("Pattern where each row i print i*i: "+i*i);
+            }
+        }
+
+        // print sum of all even and odd digit from given number
+        int givenNumber = 123456789;
+        int evenSum = 0;
+        int oddSum = 0;
+        int digits;
+        while(givenNumber!=0){
+            digits = givenNumber%10;
+            if(digits%2==0){
+                evenSum+=digits;
+            }else{
+                oddSum+=digits;
+            }
+            givenNumber/=10;
+        }
+        System.out.println("Sum of even digits: " + evenSum);
+        System.out.println("Sum of odd digits: " + oddSum);
+
+
+        // print user given input if user enters 0 continue and print all the number
+        int sum = 0;
+        for(int i=0;i<5;i++){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter a number (enter 0 to skip): ");
+            int userInput = scanner.nextInt();
+            if(userInput!=0){
+                sum += userInput;
+            } else continue;
+        }
+        System.out.println("Sum of entered numbers: " + sum);
 
     }
 }
