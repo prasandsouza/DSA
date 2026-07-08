@@ -55,6 +55,23 @@ public class Foundation {
         return fibonacciSeries(number-1) + fibonacciSeries(number-2);
     }
 
+    //print the fibonacci series
+    static void printFibonacciSeries(int number){
+        if(number<=1){
+            return;
+        }
+        printFibonacciSeries(number-1);
+        System.out.print(+fibonacciSeries(number) + " ");
+    }
+
+    // sum of digit recursively
+    static int sumOfDigit(int number){
+        if(number==0){
+            return 0;
+        }
+        return sumOfDigit(number-1) + number;
+    }
+
     public static void main(String[] args) {
         printingNumber(0);
         printingNumberreverse(5);
@@ -62,5 +79,7 @@ public class Foundation {
         System.out.println("Factorial of number is: "+factorial(5));
         System.out.println("Sum of number is: "+sum(5));
         System.out.println("Fibonacci series of number is: "+fibonacciSeries(5));
+        printFibonacciSeries(6);
+        System.out.println("\nSum of digit is: "+sumOfDigit(5));
     }
 }
