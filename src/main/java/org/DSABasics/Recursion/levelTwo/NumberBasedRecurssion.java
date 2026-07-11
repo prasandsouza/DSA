@@ -14,7 +14,7 @@ public class NumberBasedRecurssion {
     static int reverseTheNumberUsingRecurrsion(int number){
         if(number<10){
             return number;
-        }
+        }  
         int digits = (int) Math.log10(number);
         int digit = number %10;
         return (int) (digit * Math.pow(10,digits) + reverseTheNumberUsingRecurrsion(number/10));
