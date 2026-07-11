@@ -1,6 +1,8 @@
 package org.streams;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -203,8 +205,83 @@ public class StreamOperations {
                 .map(n -> n * 2)
                 .filter(n -> n > 10)
                 .forEach(System.out::println);
+
         // 28: Map values to strings Convert an `IntStream` directly into a stream of formatted strings.
+        String value = IntStream.range(1,10).mapToObj(n -> "value"+n).collect(Collectors.joining(", "));
+        System.out.println("Mapped Values to Strings: " + value);
+
+
+
         // 29: Filter blank text Remove empty or whitespace-only lines from a text sequence.
+        String testSequence = "Hello\n\nWorld\n   \nJava\n\nStreams";
+        String cleanText = testSequence.lines().filter(StringUtils::isNotBlank).collect(Collectors.joining(" "));
+        System.out.println("Cleaned Text:\n" + cleanText);
+
         // 30: Extract first character
+        String sampleString = "hello";
+        char first = sampleString.charAt(0);
+        System.out.println("First Character: " + first);
+
+        // 31: Extract first character from list of string
+        List<String> stringList = Arrays.asList("apple", "banana", "cherry");
+        List<Character> firstCharecter = stringList.stream().map(s -> s.charAt(0)).toList();
+        System.out.println("First Characters from List: " + firstCharecter);
+
+        // 31 Join a collection of tags into a single string comma-separated string
+        List<String> tags = Arrays.asList("Spring", "Java", "Boot", "Microservices");
+        String csvString = String.join(", ", tags);
+        String csvStringSecong = tags.stream().collect(Collectors.joining(", "));
+        System.out.println(csvString);
+        System.out.println(csvStringSecong);
+
+
+        // 32 Format a list of IDs into a JSON-like array bracket format `[id1, id2, id3]`.
+        List<String> listOfIds = Arrays.asList("id1", "id2", "id3");
+        String jsonFormattedArray = listOfIds.stream().collect(Collectors.joining(", ", "[", "]"));
+        System.out.println("JSON-like Array Format: " + jsonFormattedArray);
+
+        // 33 Given a list of Orders, where each order contains a list of LineItems, flatten them into a single list of LineItems.
+        List<Order> odersList = Arrays.asList(
+                new Order("Order1", Arrays.asList(new LineItem("Item1", 10), new LineItem("Item2", 20))),
+                new Order("Order2", Arrays.asList(new LineItem("Item3", 30), new LineItem("Item4", 40))),
+                new Order("Order3", Arrays.asList(new LineItem("Item5", 50)))
+        );
+
+        System.out.println("Flattened Line Items: " + odersList);
+
+        List<LineItem> flattenedLineItems = odersList.stream()
+                .flatMap(order -> order.getOrderItems().stream())
+                .toList();
+
+        System.out.println(flattenedLineItems);
+
+        // 34 Convert a two-dimensional integer matrix `int[][]` into a single unified primitive `int[]` array.
+        int[][] twoDMatrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+        int[] flattenedArray = Arrays.stream(twoDMatrix).flatMapToInt(Arrays::stream).toArray();
+        System.out.println(Arrays.toString(flattenedArray));
+
+        // 35 Sum integers manually via `.reduce()` starting from an identity base value of 0.
+        // 36 Find the product multiplication result of all factors in a list
+        // 37 Group a list of employees into a Map partitioned by their department name
+        // 38 Group items and calculate the count of occurrences per group (frequency map)
+        // 39 Group transactions by currency and calculate the total running sum of amounts per currency
+
+
+
+        // 40 Find the average salary within each department grouping
+        List<Employee> employeesLists = Arrays.asList(
+                new Employee("John Doe", "IT", 76000, "E001"),
+                new Employee("Jane Smith", "HR", 63000, "E002"),
+                new Employee("Alice Johnson", "Finance", 80000, "E003"),
+                new Employee("Bob Brown", "IT", 79000, "E004"),
+                new Employee("Charlie Davis", "HR", 70000, "E005")
+        );
+
+        Map<String,Double> departmentSalary  = employeesLists.stream().collect(Collectors.groupingBy(Employee::getDept, Collectors.averagingDouble(Employee::getSalary)));
+        System.out.println("Average Salary per Department: " + departmentSalary);
     }
 }
