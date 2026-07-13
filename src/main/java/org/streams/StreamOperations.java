@@ -265,6 +265,13 @@ public class StreamOperations {
         System.out.println(Arrays.toString(flattenedArray));
 
         // 35 Sum integers manually via `.reduce()` starting from an identity base value of 0.
+        int sumOfIntegerNumber = 12345;
+        int sumOfInteger = String.valueOf(sumOfIntegerNumber).chars().map(Character::getNumericValue).reduce(0, Integer::sum);
+        int sumOfIntegerLambda = String.valueOf(sumOfIntegerNumber).chars().map(Character::getNumericValue).reduce(0, (a, b) -> a + b);
+        System.out.println("Sum of Integer Number: " + sumOfInteger);
+        System.out.println("Sum of Integer Number (Using Lambda): " + sumOfIntegerLambda);
+
+
         // 36 Find the product multiplication result of all factors in a list
         // 37 Group a list of employees into a Map partitioned by their department name
         // 38 Group items and calculate the count of occurrences per group (frequency map)
