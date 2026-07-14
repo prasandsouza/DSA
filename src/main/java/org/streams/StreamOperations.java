@@ -273,12 +273,35 @@ public class StreamOperations {
 
 
         // 36 Find the product multiplication result of all factors in a list
+        List<Integer> factors = Arrays.asList(1, 2, 3, 4, 5);
+        int product = factors.stream().reduce(1,(accumulator,currentValue) -> currentValue * accumulator);
+        System.out.println("36 :: Product of Factors: " + product);
+
+
+        int sumFromReduce = factors.stream().reduce(0, Integer::sum);
+
         // 37 Group a list of employees into a Map partitioned by their department name
+        Map<String,List<Employee>> employeeMap = employees.stream().collect(Collectors.groupingBy(Employee::getDept));
+        System.out.println("employee based on department"+employeeMap);
+
         // 38 Group items and calculate the count of occurrences per group (frequency map)
+        Map<String,Long> frequencyMap = employees.stream().collect(Collectors.groupingBy(Employee::getDept,Collectors.counting()));
+        System.out.println("frequency map based on department"+frequencyMap);
+
         // 39 Group transactions by currency and calculate the total running sum of amounts per currency
+        List<Currency> currencies = Arrays.asList(
+                new Currency("USD", "World Currency", 100.0),
+                new Currency("EUR", "European Currency", 200.0),
+                new Currency("USD", "World Currency", 150.0),
+                new Currency("EUR", "European Currency", 50.0),
+                new Currency("GBP", "British Currency", 300.0)
+        );
+        Map<String, Double> totalAmountPerCurrency = currencies.stream().collect(Collectors.groupingBy(Currency::getName,Collectors.summingDouble(Currency::getValue)));
+        System.out.println("Total Amount per Currency: " + totalAmountPerCurrency);
 
 
-
+        Map<Boolean,List<Currency>> currencyMap = currencies.stream().collect(Collectors.partitioningBy(currency -> currency.getValue()>=300));
+        System.out.println("currency map based on value"+currencyMap);
         // 40 Find the average salary within each department grouping
         List<Employee> employeesLists = Arrays.asList(
                 new Employee("John Doe", "IT", 76000, "E001"),
