@@ -1,0 +1,22 @@
+[
+  { "empId": 101, "name": "Alice Johnson", "dept": "Engineering", "salary": 85000, "dateOfJoining": "2022-03-15" },
+  { "empId": 102, "name": "Bob Smith", "dept": "Marketing", "salary": 62000, "dateOfJoining": "2021-06-01" },
+  { "empId": 103, "name": "Charlie Davis", "dept": "Engineering", "salary": 92000, "dateOfJoining": "2020-11-20" },
+  { "empId": 104, "name": "Diana Prince", "dept": "Human Resources", "salary": 58000, "dateOfJoining": "2023-01-10" },
+  { "empId": 105, "name": "Evan Wright", "dept": "Sales", "salary": 70000, "dateOfJoining": "2022-09-05" },
+  { "empId": 106, "name": "Fiona Gallagher", "dept": "Engineering", "salary": 88000, "dateOfJoining": "2021-04-12" },
+  { "empId": 107, "name": "George Miller", "dept": "Finance", "salary": 75000, "dateOfJoining": "2020-08-30" },
+  { "empId": 108, "name": "Hannah Abbott", "dept": "Marketing", "salary": 64000, "dateOfJoining": "2023-02-14" },
+  { "empId": 109, "name": "Ian Curtis", "dept": "Engineering", "salary": 95000, "dateOfJoining": "2019-12-01" },
+  { "empId": 110, "name": "Julia Roberts", "dept": "Sales", "salary": 72000, "dateOfJoining": "2022-05-22" },
+  { "empId": 111, "name": "Kevin Hart", "dept": "Finance", "salary": 78000, "dateOfJoining": "2021-10-18" },
+  { "empId": 112, "name": "Laura Palmer", "dept": "Human Resources", "salary": 55000, "dateOfJoining": "2023-07-01" },
+  { "empId": 113, "name": "Mike Ross", "dept": "Legal", "salary": 110000, "dateOfJoining": "2020-03-15" },
+  { "empId": 114, "name": "Nina Simone", "dept": "Engineering", "salary": 82000, "dateOfJoining": "2022-11-11" },
+  { "empId": 115, "name": "Oscar Isaac", "dept": "Marketing", "salary": 66000, "dateOfJoining": "2021-01-25" },
+  { "empId": 116, "name": "Paula Patton", "dept": "Sales", "salary": 69000, "dateOfJoining": "2023-04-05" },
+  { "empId": 117, "name": "Quentin Tarantino", "dept": "Engineering", "salary": 98000, "dateOfJoining": "2018-09-12" },
+  { "empId": 118, "name": "Riley Reid", "dept": "Finance", "salary": 73000, "dateOfJoining": "2022-02-28" },
+  { "empId": 119, "name": "Sam Wilson", "dept": "Legal", "salary": 105000, "dateOfJoining": "2020-06-19" },
+  { "empId": 120, "name": "Tina Fey", "dept": "Human Resources", "salary": 60000, "dateOfJoining": "2023-08-15" }
+]
