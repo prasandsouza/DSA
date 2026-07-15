@@ -313,5 +313,32 @@ public class StreamOperations {
 
         Map<String,Double> departmentSalary  = employeesLists.stream().collect(Collectors.groupingBy(Employee::getDept, Collectors.averagingDouble(Employee::getSalary)));
         System.out.println("Average Salary per Department: " + departmentSalary);
+
+
+        List<Integer> numberss = Arrays.asList(1, 2, 3, 4, 5, 6, 4, 3, 2);
+
+        numberss.stream().collect(Collectors.groupingBy(Integer::intValue,Collectors.counting()))
+                .entrySet().stream().filter(e->e.getValue()>1).map(e-> e.getKey()).forEach(System.out::println);
+
+
+        //Q 41: Partitioning data (partitioningBy) Partition students into two lists: those who passed (grade >= 60) and those who failed.
+
+        //Q 42: Partitioning data and counting Partition tasks by completion status and return a Map with counts for true and false.
+
+        //Q 43: Transform data inside groupings (mapping) Group employees by department, but instead of full objects, extract just their names as a list.
+
+        //Q44: Maps extraction with basic keys Convert a list of users into a Map where user ID is the key and the user object is the value.
+
+        //Q 45: Map compilation resolving duplicate keys Convert list to map handling duplicate keys by retaining the item with the higher value.
+
+        //Q 46: Find longest string via reduce Locate the single longest word in a text sequence using structural reduction.
+
+        //Q 47: Conditional extraction matching condition Take elements from a sorted list sequentially as long as they are less than 100 (drop remaining immediately).
+
+        //Q 48: Discard matching header condition Skip elements in a stream until a condition becomes false, then keep the rest.
+
+        //Q 49: Summary Statistics calculations Extract count, sum, min, average, and max out of a product price stream simultaneously.
+
+        //Q 50: Max extraction returning custom object Find the employee with the highest salary in the company
     }
 }
