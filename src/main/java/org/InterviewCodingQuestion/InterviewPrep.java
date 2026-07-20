@@ -1,9 +1,9 @@
 package org.InterviewCodingQuestion;
 
 import lombok.Data;
+import org.streams.Employee;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -88,5 +88,26 @@ public class InterviewPrep {
             }
         }
         return sums;
+    }
+
+    public StringBuilder removingDuplicateFromString(String input){
+        StringBuilder builder = new StringBuilder();
+        for (int i=0;i<input.length();i++){
+            if(builder.indexOf(String.valueOf(input.charAt(i)))!=-1){
+                builder.append(input.charAt(i));
+            }
+        }
+        return builder;
+    }
+
+    public Map<String,Long> findingFrequency(List<String> input){
+        Map<String,Long> frequencyMap = new HashMap<>();
+
+        frequencyMap = input.stream().collect(Collectors.groupingBy(w-> w, Collectors.counting()));
+        return frequencyMap;
+    }
+
+    public List<Employee> comparingElement(List<Employee> employees){
+        return employees.stream().sorted(Comparator.comparing(Employee::getDateOfJoining)).collect(Collectors.toList());
     }
 }
